@@ -4,7 +4,7 @@ import sys
 
 import pygame
 
-from code.Const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
+from code.Const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION, TIMEOUT_LEVEL
 from code.Level import Level
 from code.Menu import Menu
 from code.Score import Score
@@ -29,7 +29,7 @@ class Game:
                     level = Level(self.window, 'Level2', menu_return, player_score)
                     level_return = level.run(player_score)
                     if level_return:
-                        level = Level(self.window, 'Level3', menu_return, player_score)
+                        level = Level(self.window, 'Level3', menu_return, player_score, timeout=TIMEOUT_LEVEL*4)
                         level_return = level.run(player_score)
                         if level_return:
                             score.save(menu_return, player_score)
